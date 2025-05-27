@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui";
+*{
+   font-family: "Poppins", sans-serif;
+  /* font-weight: 100; */
+  font-style: normal;
+}
+
+.active{
+  color: chartreuse;
+  font-weight: 600;
+}
