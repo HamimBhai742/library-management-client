@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import BorrowedBookCard from './BorrowedCard'
+import useUser from '../hooks/useUser'
 
 const Borrowed = () => {
+  const [user]=useUser()
   const {data:borrowedBooks=[]}=useQuery({
     queryKey: ['borrowed'],
     queryFn: async () => {
@@ -11,7 +13,10 @@ const Borrowed = () => {
       if (!res.ok) {
         throw new Error('Network response was not ok')
       }
-      return res.json()
+      const bo=await res.json();
+      console.log(bo)
+      const borrow=bo.filter(b=>b.email===user?.email && b.status==='borrowed')
+      return borrow
     }
   })
   console.log(borrowedBooks)

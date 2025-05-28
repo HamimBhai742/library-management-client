@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 const Home = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
+        {/*? Header */}
       <Helmet>
         <title>Home</title>
       </Helmet>
